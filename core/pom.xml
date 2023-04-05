@@ -12,7 +12,7 @@
     <url>https://github.com/alibaba/arthas</url>
 
     <properties>
-        <arthas.deps.package>com.alibaba.arthas.deps</arthas.deps.package>
+        <arthas.deps.package>com.ververica</arthas.deps.package>
     </properties>
 
     <build>
@@ -69,7 +69,15 @@
                                 </relocation>
                                 <relocation>
                                     <pattern>com.alibaba.fastjson</pattern>
-                                    <shadedPattern>${arthas.deps.package}.com.alibaba.fastjson</shadedPattern>
+                                    <shadedPattern>${arthas.deps.package}.${arthas.deps.package}.fastjson</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.alibaba</pattern>
+                                    <shadedPattern>${arthas.deps.package}</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>com.taobao</pattern>
+                                    <shadedPattern>${arthas.deps.package}</shadedPattern>
                                 </relocation>
                             </relocations>
                             <filters>

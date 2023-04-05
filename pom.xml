@@ -468,6 +468,35 @@
                     </execution>
                 </executions>
             </plugin>
+            
+
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-shade-plugin</artifactId>
+              <version>3.2.4</version>
+              <configuration>
+                <relocations>
+                  <relocation>
+                    <pattern>com.alibaba</pattern>
+                    <shadedPattern>com.ververica</shadedPattern>
+                  </relocation>
+                  <relocation>
+                    <pattern>com.taobao</pattern>
+                    <shadedPattern>com.ververica</shadedPattern>
+                  </relocation>
+                </relocations>
+              </configuration>
+              <executions>
+                <execution>
+                  <phase>package</phase>
+                  <goals>
+                    <goal>shade</goal>
+                  </goals>
+                </execution>
+              </executions>
+            </plugin>
+
 
             <plugin>
                 <groupId>org.jacoco</groupId>
